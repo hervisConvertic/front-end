@@ -1,0 +1,96 @@
+<div class="container">
+    <h1>Registrese con nosotros</h1>
+    <h4>Es gratis solo toma un minuto</h4>
+    <form (ngSubmit)="registro()" autocomplete="off" [formGroup]="miFormularioRegistro">
+        <div class="medio-formulario">
+            <div class="item">
+                <label for="nombre1">Primer nombre</label>
+                <input type="text" name="nombre1" id="nombre1" formControlName="nombre1"
+                    placeholder="Ingrese primer nombre">
+                <span *ngIf="campoRegistroEsValido('nombre1','required')">
+                    Correo electronico es obligatorio
+                </span>
+            </div>
+            <div class="item">
+                <label for="apellido1">Primer apellido</label>
+                <input type="text" name="apellido1" id="apellido1" formControlName="apellido1"
+                    placeholder="Ingrese primer apellido">
+                <span *ngIf="campoRegistroEsValido('apellido1','required')">
+                    Correo primer apellido es obligatorio
+                </span>
+            </div>
+            <div class="item">
+                <label for="correo">Correo electronico</label>
+                <input type="text" name="correo" id="correo" formControlName="correo"
+                    placeholder="Ingrese correo electronico">
+                <span *ngIf="campoRegistroEsValido('correo','required')">
+                    Correo electronico es obligatorio
+                </span>
+                <span *ngIf="campoRegistroEsValido('correo','email')">
+                    Correo no valido
+                </span>
+            </div>
+            <div class="item">
+                <label for="contrasena">Contraseña</label>
+                <input type="text" name="contrasena" id="contrasena" formControlName="contrasena"
+                    placeholder="Ingrese contraseña ">
+                <span *ngIf="campoRegistroEsValido('contrasena','required')">
+                    campo contraseña es obligatorio
+                </span>
+            </div>
+            <div class="item">
+                <label for="confirmacionContrasena">Confirmacion contrasena</label>
+                <input type="text" name="confirmacionContrasena" id="confirmacionContrasena"
+                    formControlName="confirmacionContrasena" placeholder="Ingrese contraseña">
+            </div>
+        </div>
+        <div class="medio-formulario">
+            <div class="item">
+                <label for="nombre2">Segundo nombre</label>
+                <input type="text" name="nombre2" id="nombre2" formControlName="nombre2"
+                    placeholder="Ingrese segundo nombre">
+                <span *ngIf="campoRegistroEsValido('nombre2','required')">
+                    campo segundo nombre es obligatorio
+                </span>
+
+            </div>
+            <div class="item">
+                <label for="apellido2">Segundo apellido</label>
+                <input type="text" name="apellido2" id="apellido2" formControlName="apellido2"
+                    placeholder="Ingrese segundo apellido">
+                <span *ngIf="campoRegistroEsValido('apellido2','required')">
+                    campo segundo apellido es obligatorio
+                </span>
+
+            </div>
+            <div class="item">
+                <label for="documento">Numero de documento</label>
+                <input type="text" name="documento" id="documento" formControlName="documento"
+                    placeholder="Ingrese numero de documento">
+                <span *ngIf="campoRegistroEsValido('documento','required')">
+                    campo documento es obligatorio
+                </span>
+                <span *ngIf="campoRegistroEsValido('documento','pattern')">
+                    debes ingresar solo numeros
+                </span>
+            </div>
+            <div class="item">
+                <label for="tipoDocumento">Tipo documento</label>
+                <select formControlName="tipoDocumento" name="tipoDocumento">
+                    <option *ngFor="let tipoDocumento of documentos" [ngValue]="tipoDocumento">
+                        {{tipoDocumento.descripcion}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="item">
+                <label>Enviar</label>
+                <button>Registrar</button>
+            </div>
+        </div>
+    </form>
+    <p>Esta seguro de registrarse, ver nuestros terminos <br>
+        <a href="#">Terminos y condiciones</a>
+    </p>
+</div>
+<p class="texto">Already have an account? <a href="#">login</a></p>
