@@ -1,0 +1,18 @@
+<div>
+    <header>
+        <section><img src="../../../assets/logoConvertic.jpg" alt=""></section>
+        <section>
+            <form>
+                <select name="tipodocumento" [(ngModel)]="seleccionGenero" (click)="getGenero()">
+                    <option *ngFor="let opcion of opciones" [value]="opcion.value">
+                        {{ opcion.genero }}
+                    </option>
+                </select>
+            </form>
+
+        </section>
+        <section class="opciones-header">Home</section>
+        <section class="opciones-header">Patrocinadores</section>
+        <section class="opciones-header">Buscar Productos</section>
+    </header>
+</div>
